@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreApi", "CoreApi.csproj", "{0A0511F4-F6B1-499A-B215-5B5BDEB856A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTest", "..\XUnitTest\XUnitTest.csproj", "{8502D5E6-0037-4FA8-AD29-4C939ADEEF43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.csproj", "{5B2DD6E6-0CF6-4214-9D9D-7A931349844E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A0511F4-F6B1-499A-B215-5B5BDEB856A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A0511F4-F6B1-499A-B215-5B5BDEB856A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A0511F4-F6B1-499A-B215-5B5BDEB856A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A0511F4-F6B1-499A-B215-5B5BDEB856A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8502D5E6-0037-4FA8-AD29-4C939ADEEF43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8502D5E6-0037-4FA8-AD29-4C939ADEEF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8502D5E6-0037-4FA8-AD29-4C939ADEEF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8502D5E6-0037-4FA8-AD29-4C939ADEEF43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B2DD6E6-0CF6-4214-9D9D-7A931349844E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B2DD6E6-0CF6-4214-9D9D-7A931349844E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B2DD6E6-0CF6-4214-9D9D-7A931349844E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B2DD6E6-0CF6-4214-9D9D-7A931349844E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E3FE670-4E71-4FBA-980D-37A47D9E746C}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://wishwise518.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CoreApi.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\Models\\Models.csproj
+		SccProjectName2 = ../Models
+		SccLocalPath2 = ..\\Models
+		SccProjectUniqueName3 = ..\\XUnitTest\\XUnitTest.csproj
+		SccProjectName3 = ../XUnitTest
+		SccLocalPath3 = ..\\XUnitTest
+	EndGlobalSection
+EndGlobal
