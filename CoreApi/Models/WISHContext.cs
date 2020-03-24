@@ -304,8 +304,7 @@ namespace CoreApi.Models
 
             modelBuilder.Entity<HtmlCssSetDetail>(entity =>
             {
-                entity.HasKey(e => new { e.Uid, e.PageCode, e.CssTag, e.Css, e.Width, e.Height })
-                    .HasName("PK_HtmlCssSetDetail_1");
+                entity.HasKey(e => new { e.Uid, e.PageCode, e.CssTag, e.Css, e.Width, e.Height, e.IsSet });
 
                 entity.HasComment("設定網頁CSS內容");
 
@@ -328,16 +327,15 @@ namespace CoreApi.Models
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
+                entity.Property(e => e.IsSet)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('Y')");
+
                 entity.Property(e => e.CssName)
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
-
-                entity.Property(e => e.IsSet)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('Y')");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -347,25 +345,58 @@ namespace CoreApi.Models
 
             modelBuilder.Entity<HtmlSet>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.PageCode, e.Id })
+                    .HasName("PK_HtmlSet_1");
 
                 entity.HasComment("設定動態網頁資料表");
 
+                entity.Property(e => e.PageCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')")
+                    .HasComment("網頁代碼");
+
                 entity.Property(e => e.Id)
-                    .IsRequired()
                     .HasColumnName("ID")
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')")
                     .HasComment("對應Html ID");
 
-                entity.Property(e => e.Lebel)
+                entity.Property(e => e.Describe)
                     .IsRequired()
-                    .HasColumnName("lebel")
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
+
+                entity.Property(e => e.GearingId)
+                    .IsRequired()
+                    .HasColumnName("GearingID")
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')")
                     .HasComment("欄位");
+
+                entity.Property(e => e.Html)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')")
+                    .HasComment("欄位");
+
+                entity.Property(e => e.Js)
+                    .IsRequired()
+                    .HasColumnName("JS")
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
+
+                entity.Property(e => e.RwdSet)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('N')")
+                    .HasComment("是否在Rwd設定頁中可以設定");
 
                 entity.Property(e => e.Type)
                     .IsRequired()

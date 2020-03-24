@@ -39,7 +39,7 @@ namespace CoreApi.Controllers.Rwd
             var filter = from o in _Context.HtmlCssSetDetail.AsQueryable()
                          join p in _Context.HtmlCssSet
                            on new { o.PageCode, o.CssTag, o.Width, o.Height } equals new { p.PageCode, p.CssTag, p.Width, p.Height }
-                         where (o.Uid == Uid || o.Uid == "") && o.PageCode == PageCode && o.Width >= Width && o.Height >= Height
+                         where (o.Uid == Uid || o.Uid == "System") && o.IsSet=="N" &&  o.PageCode == PageCode && o.Width >= Width && o.Height >= Height
                        orderby o.Uid descending, p.Srno, o.Width descending, o.Height descending, o.CssTag
                          select new { o, p.Srno, p.Width, p.Height };
 

@@ -38,7 +38,8 @@ namespace CoreApi
                 {
                     builder.WithOrigins("http://localhost", "http://localhost:8080", "http://114.32.54.227")
                       .AllowAnyHeader()
-                      .AllowAnyMethod();
+                      .AllowAnyMethod()
+                      .AllowCredentials();
                 });
             });
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null)/*.AddMvcOptions(Mvc=> Mvc.Filters.Add<TokenActionFilter>())*/;
@@ -59,7 +60,7 @@ namespace CoreApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseHttpsRedirection();
 
