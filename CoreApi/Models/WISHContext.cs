@@ -337,6 +337,19 @@ namespace CoreApi.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
+                entity.Property(e => e.CssType)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')")
+                    .HasComment("對應html欄位的key");
+
+                entity.Property(e => e.KeyName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(100)

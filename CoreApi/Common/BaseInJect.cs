@@ -11,10 +11,12 @@ namespace CoreApi.Common
     {
         public WISHContext _Context;
         public IConfiguration _configuration;
-        public BaseInJect(IConfiguration configuration, WISHContext Context)
+        public DapperSql _Dapper;
+        public BaseInJect(IConfiguration configuration, WISHContext Context, DapperSql Dapper)
         {
             _configuration = configuration;
             _Context = Context;
+            _Dapper = Dapper;
         }
     }
 }

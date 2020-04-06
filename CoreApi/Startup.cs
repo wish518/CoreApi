@@ -46,6 +46,7 @@ namespace CoreApi
             services.AddTransient<WriteLog>();
             services.AddTransient<BaseInJect>();
             services.AddScoped<BaseHeaderData>();
+            services.AddScoped<DapperSql>();
             services.AddDbContext<WISHContext>(optionsBuilder =>
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("WISH"));

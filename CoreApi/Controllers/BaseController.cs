@@ -3,6 +3,7 @@ using CoreApi.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -23,6 +24,7 @@ namespace CoreApi.Controllers
         public BaseR<Tout> BaseR = new BaseR<Tout>();
         public IConfiguration _configuration;
         public BaseHeaderData _HeaderData;
+        public SqlConnection _conn;
 
         public virtual Tout GetMethon(string[] Parm)
         {
@@ -66,6 +68,15 @@ namespace CoreApi.Controllers
         public IActionResult Get(string Parm, string Parm2)
         {
             return GetFirstAction(Parm, Parm2);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Post()
+        {
+            return await PostFirstAction(null);
         }
 
         [HttpPost]
@@ -168,6 +179,7 @@ namespace CoreApi.Controllers
             BaseInJect InJect = HttpContext.RequestServices.GetService<BaseInJect>();
             _Context = InJect._Context;
             _HeaderData = HttpContext.RequestServices.GetService<BaseHeaderData>();
+            _conn = InJect._Dapper.conn;
         }
     }
 }

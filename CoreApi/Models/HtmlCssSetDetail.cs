@@ -14,5 +14,7 @@ namespace CoreApi.Models
         public int Width { get; set; }
         public int Height { get; set; }
         public string IsSet { get; set; }
+        public string KeyName { get; set; }
+        public string CssType { get; set; }
     }
 }
